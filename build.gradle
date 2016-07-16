@@ -1,0 +1,26 @@
+apply plugin: 'java'
+apply plugin: 'war'
+
+repositories {
+    jcenter()
+    mavenCentral()
+}
+
+dependencies {
+    compile 'org.apache.tomcat.embed:tomcat-embed-websocket:8.0.33'
+    compile 'org.springframework:spring-webmvc:4.2.4.RELEASE'
+    compile 'mysql:mysql-connector-java:5.1.13'
+	compile group: 'com.google.code.gson', name: 'gson', version: '2.7'
+    compile group: 'com.j256.ormlite', name: 'ormlite-jdbc', version: '4.48'
+}
+
+/*
+war {
+    webXml = file('src/webapp/WEB-INF/web_.xml')
+    from('src/webapp/WEB-INF'){
+        include '*.xml'
+        into 'WEB-INF'
+    }
+    from 'src/resources'
+}
+*/
