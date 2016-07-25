@@ -9,7 +9,7 @@ import com.phillo.produtos.config.DBConfig;
 import java.util.List;
 
 /**
- * Created by angre on 7/16/2016.
+ * Created by Angreh (angreh@gmail.com) on 7/16/2016.
  */
 public class GenericDao
 {
@@ -20,18 +20,21 @@ public class GenericDao
         file = gFile;
     }
 
-    public void save(Object object)
+    public boolean save(Object object)
     {
         ConnectionSource conn = conn();
         try
         {
             Dao dao = DaoManager.createDao( conn, file);
-            dao.create(object);
+            Integer result = dao.create(object);
+
+            return (result==1);
         }
         catch (Exception e)
         {
             e.printStackTrace();
         }
+        return false;
     }
 
     public List getAll()
@@ -39,10 +42,8 @@ public class GenericDao
         ConnectionSource conn = conn();
         try
         {
-            //cria DAO
             Dao dao = DaoManager.createDao(conn, file);
 
-            //função que pega todos os itens
             List genericList = dao.queryForAll();
 
             conn.close();

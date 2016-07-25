@@ -11,7 +11,10 @@ import com.j256.ormlite.table.DatabaseTable;
 public class Product
 {
     @DatabaseField(generatedId = true, canBeNull = false)
-    public Integer id;
+    public Integer ID;
+
+    @DatabaseField(canBeNull = false)
+    public Integer domainID;
 
     @DatabaseField(canBeNull = false)
     public String name;

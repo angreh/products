@@ -34,12 +34,14 @@ public class ProductController
     @RequestMapping(value = "/insert", method = RequestMethod.POST)
     public ModelAndView insert(
             @RequestParam("name") String name,
-            @RequestParam(value = "description", required = false) String description
+            @RequestParam(value = "description", required = false) String description,
+            @RequestParam(value = "price", required = false) Float price,
+            @RequestParam(value = "sellPrice", required = false) Float sellPrice
     ){
         ProductModel model = new ProductModel();
-        model.insert(name, description);
+        Boolean response = model.insert(1, name, description, price, sellPrice);
 
-        ModelAndView Return = new ModelAndView("returnFile", "Return", "Ok");
+        ModelAndView Return = new ModelAndView("returnFile", "Return", response);
         return Return;
     }
 

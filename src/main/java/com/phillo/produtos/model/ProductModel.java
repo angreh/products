@@ -6,7 +6,7 @@ import com.phillo.produtos.dao.GenericDao;
 import java.util.List;
 
 /**
- * Created by angre on 7/16/2016.
+ * Created by Angreh (angreh@gmail.com) on 7/16/2016.
  */
 public class ProductModel
 {
@@ -17,16 +17,22 @@ public class ProductModel
         return dao.getAll();
     }
 
-    public boolean insert(String name, String description)
+    public boolean insert(
+            Integer domainID,
+            String name,
+            String description,
+            Float price,
+            Float sellPrice)
     {
         GenericDao dao = new GenericDao(Product.class);
 
         Product product = new Product();
+        product.domainID = domainID;
         product.name = name;
         product.description = description;
+        product.price = price;
+        product.sellPrice = sellPrice;
 
-        dao.save(product);
-
-        return true;
+        return dao.save(product);
     }
 }
