@@ -1,8 +1,6 @@
 package com.phillo.produtos.model;
 
-import com.j256.ormlite.dao.Dao;
 import com.phillo.produtos.bo.GenericBO;
-import com.phillo.produtos.bo.Product;
 import com.phillo.produtos.dao.GenericDao;
 
 import java.lang.reflect.Constructor;
