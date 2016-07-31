@@ -8,11 +8,8 @@ import com.j256.ormlite.table.DatabaseTable;
  */
 
 @DatabaseTable(tableName = "product")
-public class Product
+public class Product extends GenericBO
 {
-    @DatabaseField(generatedId = true, canBeNull = false)
-    public Integer ID;
-
     @DatabaseField(canBeNull = false)
     public Integer domainID;
 
