@@ -22,7 +22,7 @@ public class GenericModel
     protected GenericModel(Class gFile)
     {
         file = gFile;
-        dao = new GenericDao(gFile);
+        dao = new GenericDao(file);
     }
 
     /**
@@ -54,8 +54,6 @@ public class GenericModel
      */
     public Integer insert(Map fields)
     {
-        GenericDao dao = new GenericDao(Product.class);
-
         try
         {
             Constructor constructor = file.getConstructor();
